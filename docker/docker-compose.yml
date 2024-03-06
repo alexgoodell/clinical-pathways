@@ -1,25 +1,18 @@
 version: "3.3"
 services:
   pathways:
-    image: python3.11
+    build:
+      dockerfile: Dockerfile-pathways
     container_name: pathways-container
     environment:
       - IS_LOCAL_ENV=0
     volumes:
-      - app:/app
+      - ~/code/clinical-pathways:/app
     ports:
-      - 7777:80
+      - 5000:5000
     restart: unless-stopped
-    depends_on:
-      - requirements
-    command: python app.py --server
-  requirements:
-    image: python:3.11
-    volumes:
-      - app:/app
-    command: pip install -r requirements.txt
-    environment:
-      - IS_LOCAL_ENV=0
+    working_dir: /app
+    command: python app.py --server --host=0.0.0.0
 volumes:
   app:
     external: true
