@@ -1,0 +1,56 @@
+version: "3.3"
+services:
+  pathways:
+    image: python3.11
+    container_name: pathways-container
+    environment:
+      - IS_LOCAL_ENV=0
+    volumes:
+      - app:/app
+    ports:
+      - 7777:80
+    restart: unless-stopped
+    depends_on:
+      - requirements
+    command: python app.py --server
+  requirements:
+    image: python:3.11
+    volumes:
+      - app:/app
+    command: pip install -r requirements.txt
+    environment:
+      - IS_LOCAL_ENV=0
+volumes:
+  app:
+    external: true
+
+
+#    tiangolo/uvicorn-gunicorn-fastapi:
+#
+#
+#version: '3'
+#
+#services:
+#  django:
+#    image: python:3.7-alpine
+#    volumes:
+#     - pip37:/usr/local/lib/python3.7/site-packages
+#     - .:/project
+#    ports:
+#      - 8000:8000
+#    working_dir: /project
+#    command: python manage.py runserver
+#    depends_on:
+#      - requirements
+#
+#  requirements:
+#    image: python:3.7-alpine
+#    volumes:
+#      - pip37:/usr/local/lib/python3.7/site-packages
+#      - .:/project
+#    working_dir: /project
+#    command: pip install -r requirements.txt
+#
+#volumes:
+#  pip37:
+#    external: true

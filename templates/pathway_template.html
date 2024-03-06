@@ -1,0 +1,68 @@
+{# templates/pathway_template.html #}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/human.css')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+<body>
+  <div class="title-banner">Breast Clinical Care Pathway</div>
+  <div class="frame">
+
+  <div class="group-holder" role="list">
+
+    <!------------------------- preop group ------------------------->
+    <div class="group preop" role="listitem">
+      <div class="groupheader">Preoperative</div>
+      <div class="groupbody">
+        {% for section in pre %}
+        <div class="subsection">
+          <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>
+          <div class="subsection-header">{{ section.subheader }}</div>
+          <div class="subsection-body">{{ section.content_block|safe }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+      <!------------------------- intra group ------------------------->
+    <div class="group intra" role="listitem">
+      <div class="groupheader">Intraoperative</div>
+      <div class="groupbody">
+        {% for section in intra %}
+        <div class="subsection">
+          <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>
+          <div class="subsection-header">{{ section.subheader }}</div>
+          <div class="subsection-body">{{ section.content_block|safe }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+      <!------------------------- post group ------------------------->
+    <div class="group post" role="listitem">
+      <div class="groupheader">Postoperative</div>
+      <div class="groupbody">
+        {% for section in post %}
+        <div class="subsection">
+          <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>
+          <div class="subsection-header">{{ section.subheader }}</div>
+          <div class="subsection-body">{{ section.content_block|safe }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="foot">
+      Version XYZ. Last updated Feb 31, 2023. Available as a webpage at <a href="https://pathways.stanes.link/breast">https://pathways.stanes.link/breast</a> or as a <a href="https://pathways.stanes.link/breast/pdf">downloadable PDF</a>. Edit this pathway in <a href="https://office365stanford-my.sharepoint.com/:t:/g/personal/agoodell_stanford_edu/EWdDw2RJ_O5ApV4jNibrWLIBWoOl56xVz_Vpgiy6Ao9Aqg?e=asjnYw">OneDrive</a>.
+    </div>
+  </div>
+  </div>
+
+
+</body>
+
+</html>
