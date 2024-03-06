@@ -15,16 +15,16 @@ def index():
     if request.method == 'POST':
         user_input = request.form['text_input']
         # Do something with user_input here
-        label_writer = LabelWriter("templates/item_template.html",
-                                   default_stylesheets=("styles/style.css",))
+        label_writer = LabelWriter("templates/pathway.html",
+                                   default_stylesheets=("templates/pathway.css",))
         records= [
             dict(sample_id="s01", sample_name=user_input),
         ]
         label_writer.write_labels(records, target='static/label.pdf')
 
                 # To get better resolution
-        zoom_x = 2.0  # horizontal zoom
-        zoom_y = 2.0  # vertical zoom
+        zoom_x = 0.75  # horizontal zoom
+        zoom_y = 0.75  # vertical zoom
         mat = fitz.Matrix(zoom_x, zoom_y)  # zoom factor 2 in each dimension
 
 
