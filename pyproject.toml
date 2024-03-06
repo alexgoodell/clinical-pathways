@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "clinical-pathways"
+version = "0.0.0"
+description = "web app for Stanford Anesthesia"
+authors = ["Alex Goodell <alexgoodell@gmail.com>"]
+license = "Reserved"
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.1"
+pandoc = "^2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
