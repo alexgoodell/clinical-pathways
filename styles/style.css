@@ -1,0 +1,22 @@
+@page {
+    width: 57mm;
+    height: 32mm;
+    padding: 0.5mm;
+}
+img {
+    height: 6.4mm;
+    display: inline-block;
+    vertical-align: middle;
+    image-rendering: pixelated;
+}
+.outer {
+    width: 58mm;
+    height: 32mm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.label {
+    font-family: 'Recoleta Alt Semibold', Verdana;
+    font-size: 24px;
+}
