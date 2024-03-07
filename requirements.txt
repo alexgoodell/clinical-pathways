@@ -24,7 +24,7 @@ charset-normalizer==3.3.2
 ci-info==0.3.0
 cleo==2.1.0
 click==8.1.7
--e git+https://github.com/alexgoodell/clinical-pathways.git@fc7fa0a12ce8cbb88f195fbe6cac047bb5339a25#egg=clinical_pathways
+-e git+https://github.com/alexgoodell/clinical-pathways.git@d6bd46cd0d72bd98f2484438440ad52c8b12c71c#egg=clinical_pathways
 comm==0.2.1
 configobj==5.0.8
 configparser==6.0.1

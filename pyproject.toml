@@ -1,4 +1,5 @@
 [tool.poetry]
+package-mode = false
 name = "clinical-pathways"
 version = "0.0.0"
 description = "web app for Stanford Anesthesia"
@@ -6,11 +7,19 @@ authors = ["Alex Goodell <alexgoodell@gmail.com>"]
 license = "Reserved"
 readme = "README.md"
 packages = [{include = "app"}]
+repository = "https://github.com/alexgoodell/clinical-pathways"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 pandas = "^2.2.1"
 pandoc = "^2.3"
+beautifulsoup4 = "^4.12.3"
+fitz = "^0.0.1.dev2"
+pymupdf = "^1.23.26"
+ipython = "^8.22.2"
+blabel = "^0.1.6"
+pypandoc = "^1.13"
+pyproject-hooks = "^1.0.0"
 
 
 [build-system]
