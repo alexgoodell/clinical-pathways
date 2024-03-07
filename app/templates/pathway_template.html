@@ -5,10 +5,27 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{{url_for('static', filename='styles/human.css')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9daddce1ca.js" crossorigin="anonymous"></script>
   </head>
 
 <body>
-  <div class="title-banner">Breast Clinical Care Pathway</div>
+  <div class="title-banner">
+    <span class="title-text"> Breast Clinical Care Pathway </span>
+
+  {% if format == "web" %}
+
+    <span class="title-buttons">
+      <a href="https://gist.github.com/alexgoodell/feeff886c979b7e0af47120ca970f524">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </a>
+      <a href="https://pathways.stanes.link/breast/pdf">
+        <i class="fa-solid fa-download"></i>
+      </a>
+    </span>
+
+  {% endif %}
+
+  </div>
   <div class="frame">
 
   <div class="group-holder" role="list">

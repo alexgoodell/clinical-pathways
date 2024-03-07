@@ -13,4 +13,7 @@ remote:
 	git pull
 	docker compose up -d
 
+serve:
+	python app/__init__.py
+
 .PHONY: backup remote

@@ -35,7 +35,6 @@
 .home-frame {
   float: left;
   width: 100%;
-  margin: 0 15px;
 }
 
 /* fonts */
@@ -51,6 +50,7 @@
     display: block;
     justify-content: center;
     height: 100%;
+    width: 100%;
     max-width: 800px;
     padding: 0;
     margin: 0 auto;
@@ -198,11 +198,25 @@ a {
   background-image: var(--black-gradient);
   display: block;
   float: left;
-  color: #ffffff;
-  font: normal normal 700 normal 20px/1.2 Inter, sans-serif;
   text-align: center;
   padding: 20px;
   margin-bottom: 15px;
+}
+
+.title-text {
+  color: #ffffff;
+  font: normal normal 700 normal 20px/1.2 Inter, sans-serif;
+}
+
+.title-buttons a {
+  width: 40px;
+  height: 20px;
+  float: right;
+  color: #ffffff;
+}
+
+.title-buttons a:hover {
+  color: #ef7a7a;
 }
 
 .subsection-header {
