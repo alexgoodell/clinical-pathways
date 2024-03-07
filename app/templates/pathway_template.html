@@ -12,7 +12,7 @@
   <div class="title-banner">
     <span class="title-text"> Breast Clinical Care Pathway </span>
 
-  {% if format == "web" %}
+    {% if format == "web" %}
 
     <span class="title-buttons">
       <a href="https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/edit">
@@ -23,9 +23,10 @@
       </a>
     </span>
 
-  {% endif %}
+    {% endif %}
 
   </div>
+
   <div class="frame">
 
   <div class="group-holder" role="list">
@@ -33,7 +34,7 @@
     <!------------------------- preop group ------------------------->
     <div class="group preop" role="listitem">
       <div class="groupheader">Preoperative</div>
-      <div class="groupbody">
+      <div class="groupbody {{format}}-only">
         {% for section in pre %}
         <div class="subsection">
           <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>
@@ -47,7 +48,7 @@
       <!------------------------- intra group ------------------------->
     <div class="group intra" role="listitem">
       <div class="groupheader">Intraoperative</div>
-      <div class="groupbody">
+      <div class="groupbody {{format}}-only">
         {% for section in intra %}
         <div class="subsection">
           <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>
@@ -61,7 +62,7 @@
       <!------------------------- post group ------------------------->
     <div class="group post" role="listitem">
       <div class="groupheader">Postoperative</div>
-      <div class="groupbody">
+      <div class="groupbody {{ format }}-only">
         {% for section in post %}
         <div class="subsection">
           <div class="dot"><img class="vicon" src="{{ section.image_url }}"></div>

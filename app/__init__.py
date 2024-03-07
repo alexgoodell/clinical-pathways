@@ -17,9 +17,13 @@ from flask import send_file
 
 app = Flask(__name__)
 
+# TODO auth
+# https://spdb.stanford.edu/spconfigs/new
+
 
 def generate_html(markdown_path, format):
-    bare_html = pypandoc.convert_file(markdown_path, 'html')
+    markdown_contents = urllib.request.urlopen(markdown_path)
+    bare_html = pypandoc.convert_file(markdown_path, format="markdown", to='html')
     soup = BeautifulSoup(bare_html, 'html.parser')
     title = soup.find('h1').text
     header = ""
@@ -76,7 +80,7 @@ def generate_pdf_breast():
                      'scale': 0.75}
     # path = os.path.abspath('static/build/breast.html')
     # converter.convert(f'file:///{path}', 'static/build/breast.pdf', print_options=print_options)
-    converter.convert('http://localhost:5000/breast', 'app/static/build/breast.pdf', print_options=print_options)
+    converter.convert('http://localhost:5000/breast/print', 'app/static/build/breast.pdf', print_options=print_options)
     try:
         return send_file('static/build/breast.pdf')
     except:
@@ -92,4 +96,4 @@ def generate_web_html():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug=True)
