@@ -9,5 +9,8 @@ backup:
 	git commit -m "$(MSG)"
 	git push origin main
 
+remote:
+	git pull
+	docker-compose up -d
 
-.PHONY: backup
+.PHONY: backup remote
