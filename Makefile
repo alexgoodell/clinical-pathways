@@ -3,8 +3,7 @@ MSG=auto_backup
 backup:
 	( \
 		source ~/.virtualenvs/pathways/bin/activate; \
-		pip install --upgrade pip; \
-		pip freeze > requirements.txt; \
+		poetry check; \
     )
 	git add .
 	git commit -m "$(MSG)"

@@ -2,7 +2,7 @@ version: "3.3"
 services:
   pathways:
     build:
-      dockerfile: Dockerfile-pathways
+      dockerfile: Dockerfile
     image: pathways-image
     container_name: pathways-container
     environment:
