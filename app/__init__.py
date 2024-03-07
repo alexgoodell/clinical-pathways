@@ -32,7 +32,7 @@ def print_label():
     return render_template('index.html')
 
 
-@app.route('/breast/pdf', methods=['GET', 'POST'])
+@app.route('/breast/pdf', methods=['GET'])
 def generate_pdf_breast():
     print_options = {'paperWidth': 11,
                      'paperHeight': 8.5,
@@ -43,7 +43,7 @@ def generate_pdf_breast():
                      'scale': 0.75}
     # path = os.path.abspath('static/build/breast.html')
     # converter.convert(f'file:///{path}', 'static/build/breast.pdf', print_options=print_options)
-    converter.convert('http://localhost:5000/breast', 'static/build/breast.pdf', print_options=print_options)
+    converter.convert('http://localhost:5000/breast', 'app/static/build/breast.pdf', print_options=print_options)
     try:
         return send_file('static/build/breast.pdf')
     except:
@@ -116,7 +116,7 @@ def generate_html_breast():
     # template.render(context)
 
     content = render_template('pathway_template.html', pre=pre, intra=intra, post=post, title=title)
-    with open("static/build/breast.html", "w") as file:
+    with open("app/static/build/breast.html", "w") as file:
         file.write(content)
 
     return content

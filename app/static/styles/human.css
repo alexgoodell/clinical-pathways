@@ -32,6 +32,12 @@
   margin: 0 15px;
 }
 
+.home-frame {
+  float: left;
+  width: 100%;
+  margin: 0 15px;
+}
+
 /* fonts */
 
 @font-face {
@@ -41,6 +47,25 @@
 }
 
 
+.col-wrapper {
+    display: block;
+    justify-content: center;
+    height: 100%;
+    max-width: 800px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.col-wrapper p {
+    hyphens: auto;
+  overflow-wrap: break-word;
+    font: normal normal 400 normal 16px/1rem Inter, sans-serif;
+  /*text-align: justify;*/
+  width: 100%;
+  color: #000000;
+  padding: 0 20px;
+
+}
 
 * {
   -webkit-font-smoothing: antialiased;
