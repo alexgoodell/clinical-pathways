@@ -3,6 +3,7 @@ services:
   pathways:
     build:
       dockerfile: Dockerfile-pathways
+    image: pathways-image
     container_name: pathways-container
     environment:
       - IS_LOCAL_ENV=0
@@ -12,11 +13,13 @@ services:
       - 5000:5000
     restart: unless-stopped
     working_dir: /app
-    command: python app.py --server --host=0.0.0.0
+#    entrypoint: /bin/bash
+    command: python app/__init__.py
 volumes:
   app:
     external: true
 
+# docker run -it --entrypoint /bin/bash -v ~/code/clinical-pathways:/app -p 5000:5000 pathways-image
 
 #    tiangolo/uvicorn-gunicorn-fastapi:
 #

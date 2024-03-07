@@ -24,7 +24,7 @@ charset-normalizer==3.3.2
 ci-info==0.3.0
 cleo==2.1.0
 click==8.1.7
--e git+https://github.com/alexgoodell/clinical-pathways.git@244cb101a24fc88b0dc1b32da5da5c2a8b30ee49#egg=clinical_pathways
+-e git+https://github.com/alexgoodell/clinical-pathways.git@a6b7cae1f2dda841da2c4a54fbf209780b14c5be#egg=clinical_pathways
 comm==0.2.1
 configobj==5.0.8
 configparser==6.0.1
@@ -134,7 +134,7 @@ pyhtml2pdf==0.0.7
 PyMuPDF==1.23.26
 PyMuPDFb==1.23.22
 pypandoc==1.13
-pyparsing==3.1.1
+pyparsing==3.1.2
 pypdf==4.1.0
 pyphen==0.14.0
 pypng==0.20220715.0

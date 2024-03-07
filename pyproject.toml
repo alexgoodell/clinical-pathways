@@ -20,6 +20,8 @@ ipython = "^8.22.2"
 blabel = "^0.1.6"
 pypandoc = "^1.13"
 pyproject-hooks = "^1.0.0"
+flask = "^3.0.2"
+pyhtml2pdf = "^0.0.7"
 
 
 [build-system]

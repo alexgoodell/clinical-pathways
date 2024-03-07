@@ -61,10 +61,12 @@ def generate_html_breast():
     # webConverted = doc.html
     # bare_html = pypandoc.convert_file('example_input.md', 'html')
 
+    # currently NOT WORKING
     microsoft_url = "https://office365stanford-my.sharepoint.com/personal/agoodell_stanford_edu/_layouts/15/download.aspx?SourceUrl=%2Fpersonal%2Fagoodell%5Fstanford%5Fedu%2FDocuments%2Fmarkdown%5Fexample%2Emd"
-
     local_ondrive_path = '/Users/alexandergoodell/Library/CloudStorage/OneDrive-Stanford/clinical-pathways-documents/'
     specific_path = local_ondrive_path + 'breast.md'
+
+    specific_path = 'app/static/build/breast.md'
 
     bare_html = pypandoc.convert_file(specific_path, 'html')
     #
@@ -120,6 +122,7 @@ def generate_html_breast():
         file.write(content)
 
     return content
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
