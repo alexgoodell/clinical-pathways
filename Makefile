@@ -9,11 +9,18 @@ backup:
 	git commit -m "$(MSG)"
 	git push origin main
 
-remote:
+remote up:
 	git pull
 	docker compose up -d
 
+remote down:
+	git pull
+	docker compose down -d
+
 serve:
 	python app/__init__.py
+
+destroy:
+
 
 .PHONY: backup remote

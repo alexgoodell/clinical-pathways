@@ -12,6 +12,14 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
 RUN google-chrome --version
 
+# Install fonts
+RUN mkdir ~/.fonts
+RUN mkdir ~/.local/share/fonts/
+RUN wget https://github.com/alexgoodell/clinical-pathways/blob/main/app/static/fonts/inter.ttf -O ~/.local/share/fonts/inter.ttf
+RUN wget https://github.com/alexgoodell/clinical-pathways/blob/main/app/static/fonts/inter.woff2 -O ~/.local/share/fonts/inter.woff2
+
+
+# mkdir ~/.fonts; mkdir ~/.local/share/fonts/; wget https://github.com/alexgoodell/clinical-pathways/blob/main/app/static/fonts/inter.ttf -O ~/.local/share/fonts/inter.ttf; wget https://github.com/alexgoodell/clinical-pathways/blob/main/app/static/fonts/inter.woff2 -O ~/.local/share/fonts/inter.woff2;
 
 COPY poetry.lock /app/poetry.lock
 COPY pyproject.toml /app/pyproject.toml
