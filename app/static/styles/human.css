@@ -39,6 +39,10 @@
 
 /* fonts */
 
+* {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+}
+
 @font-face {
   font-family: 'Inter';
   src: url(http://localhost:5000/static/fonts/inter.woff2) format('woff2'),
@@ -59,7 +63,9 @@
 .col-wrapper p {
     hyphens: auto;
   overflow-wrap: break-word;
-    font: normal normal 400 normal 16px/1rem Inter, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1rem;
   /*text-align: justify;*/
   width: 100%;
   color: #000000;
@@ -201,7 +207,7 @@ a {
   width: 100%;
   padding: 20px;
   top: 0;
-  font-family: Inter, Helvetica, sans-serif;
+
   font-weight: 700;
   color: #000000;
   font-size: 17px;
@@ -238,7 +244,9 @@ a {
 
 .title-text {
   color: #ffffff;
-  font: normal normal 700 normal 20px/1.2 Inter, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1rem;
 }
 
 .title-buttons a {
@@ -255,7 +263,6 @@ a {
 .subsection-header {
   font-size: 12px;
   line-height: 1.2em;
-  font-family: Inter, sans-serif;
   font-weight: 550;
 }
 
@@ -264,13 +271,15 @@ a {
 }
 
 .subsection-body p {
-  font: normal normal 400 normal 12px/1rem Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1rem;
   /*text-align: justify;*/
   width: 100%;
   color: #000000;
   padding: 0 20px;
-  hyphens: auto;
-  overflow-wrap: break-word;
+  /*hyphens: auto;*/
+  /*overflow-wrap: break-word;*/
 }
 
 /*<'font-style'> – See the font-style CSS property.*/
@@ -283,11 +292,13 @@ a {
 
 .subsection-body ul {
   width: 100%;
-  font: normal normal 400 normal 12px/1rem Inter, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1rem;
   /*text-align: justify;*/
   padding-right: 20px;
-  hyphens: auto;
-  overflow-wrap: break-word;
+  /*hyphens: auto;*/
+  /*overflow-wrap: break-word;*/
 }
 
 .subsection {
@@ -321,7 +332,7 @@ a {
 
 
 .foot {
-  font-family: Inter, Helvetica, sans-serif;
+
   font-weight: 300;
   color: #000000;
   font-size: 13px;
