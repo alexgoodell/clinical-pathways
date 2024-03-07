@@ -11,6 +11,6 @@ backup:
 
 remote:
 	git pull
-	docker-compose up -d
+	docker compose up -d
 
 .PHONY: backup remote
