@@ -20,7 +20,7 @@ remote down:
 serve:
 	python app/__init__.py
 
-destroy:
-
+into docker:
+	docker exec -it pathways-container /bin/bash -c "fish"
 
 .PHONY: backup remote
