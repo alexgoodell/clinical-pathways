@@ -15,7 +15,7 @@
   {% if format == "web" %}
 
     <span class="title-buttons">
-      <a href="https://gist.github.com/alexgoodell/feeff886c979b7e0af47120ca970f524">
+      <a href="https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/edit">
         <i class="fa-solid fa-pen-to-square"></i>
       </a>
       <a href="https://pathways.stanes.link/breast/pdf">
@@ -72,10 +72,11 @@
       </div>
     </div>
 
-
+    {% if format == "print" %}
     <div class="foot">
-      Version XYZ. Last updated Feb 31, 2023. Available as a webpage at <a href="https://pathways.stanes.link/breast">https://pathways.stanes.link/breast</a> or as a <a href="https://pathways.stanes.link/breast/pdf">downloadable PDF</a>. Edit this pathway in <a href="https://office365stanford-my.sharepoint.com/:t:/g/personal/agoodell_stanford_edu/EWdDw2RJ_O5ApV4jNibrWLIBWoOl56xVz_Vpgiy6Ao9Aqg?e=asjnYw">OneDrive</a>.
+      Version XYZ. Last updated DD/MM/YYYY. To view or edit online, visit <a href="https://pathways.stanes.link/breast">https://pathways.stanes.link/breast</a>.
     </div>
+    {% endif %}
   </div>
   </div>
 

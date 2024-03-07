@@ -18,12 +18,8 @@ from flask import send_file
 app = Flask(__name__)
 
 
-def generate_html(format):
-    specific_path = ('https://gist.githubusercontent.com/alexgoodell/feeff886c979b7e0af47120ca970f524/raw'
-                     '/af2df9d933011dad6cab2f04cefdf8439ba8ccfe/example_clinical_pathway.md')
-
-    bare_html = pypandoc.convert_file(specific_path, 'html')
-
+def generate_html(markdown_path, format):
+    bare_html = pypandoc.convert_file(markdown_path, 'html')
     soup = BeautifulSoup(bare_html, 'html.parser')
     title = soup.find('h1').text
     header = ""
@@ -88,11 +84,11 @@ def generate_pdf_breast():
 
 @app.route('/breast/print', methods=['GET'])
 def generate_print_html():
-    return generate_html(format="print")
+    return generate_html(markdown_path='https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/download',format="print")
 
 @app.route('/breast', methods=['GET'])
 def generate_web_html():
-    return generate_html(format="web")
+    return generate_html(markdown_path='https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/download',format="web")
 
 
 if __name__ == '__main__':
