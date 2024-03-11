@@ -3,7 +3,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/human.css')}}" />
+    <title> Breast Clinical Care Pathway </title>
+
+    {% if format == "web" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/'+style+'.css') }}" />
+    {% endif %}
+
+    {% if format == "print" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/larissa.css') }}" />
+    {% endif %}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/9daddce1ca.js" crossorigin="anonymous"></script>
   </head>

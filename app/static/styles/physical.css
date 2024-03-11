@@ -1,0 +1,355 @@
+:root {
+  /*colors */
+  /*  Base Values  */
+  --primary-color-h: 46;
+  --primary-color-s: 100%;
+  --primary-color-l: 76%;
+  --secondary-color-h: 180;
+  --secondary-color-s: 99%;
+  --secondary-color-l: 27%;
+  --tertiary-color-h: 180;
+  --tertiary-color-s: 99%;
+  --tertiary-color-l: 27%;
+  --contrastThreshold: 60%;
+
+  /*  Calculations Based on Lightness  */
+  --lightnessTransform: 15%;
+  --lightnessTransform2: 10%;
+  --lightnessTransform3: 5%;
+
+  --black-gradient: linear-gradient(54deg, rgb(0, 0, 0, 20%), rgba(0, 0, 0, 0%) 91%);
+  --white-gradient-1: linear-gradient(344deg, rgb(255, 255, 255, 36%), rgba(255, 255, 255, 0%) 50%);
+  --white-gradient-2: linear-gradient(344deg, rgb(255, 255, 255, 20%), rgba(255, 255, 255, 0%) 50%);
+
+}
+
+@page {
+  width: 17in;
+  height: 11in;
+  margin: 0;
+}
+.frame {
+  margin: 0px 25px;
+}
+
+.home-frame {
+  float: left;
+  width: 100%;
+}
+
+/* fonts */
+
+* {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url(http://localhost:5000/static/fonts/inter.woff2) format('woff2'),
+       url(http://localhost:5000/static/fonts/inter.ttf) format('truetype');
+}
+
+
+.col-wrapper {
+    display: block;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.col-wrapper p {
+    hyphens: auto;
+  overflow-wrap: break-word;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1rem;
+  /*text-align: justify;*/
+  width: 100%;
+  color: #000000;
+  padding: 0 20px;
+
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+
+/*@media print {*/
+  .group-holder {
+      width: 100%;
+      grid-column-gap: 25px;
+      grid-row-gap: 25px;
+      flex-flow: row;
+      grid-template-rows: auto;
+      grid-auto-columns: 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+      display: grid;
+  }
+
+  .group {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    flex-direction: row;
+    transition: transform .2s, opacity .2s;
+    display: block;
+  }
+
+  .subsection-body, .subsection-header {
+      width: calc(100% - 57px);
+  }
+
+  .foot {
+    /*display: none;*/
+    position: absolute;
+    width: 1115px;
+    height: 25px;
+    bottom: 15px;
+    right: 20px;
+  }
+/*}*/
+
+
+@media print {
+   /*------ for wheezy print -----*/
+  /*.group-holder {*/
+  /*    width: 100%;*/
+  /*    display: block;*/
+  /*}*/
+  /*.preop, .intra {*/
+  /*  margin-right: 15px;*/
+  /*}*/
+  /*.group {*/
+  /*  width: 521px;*/
+  /*  height: 900px;*/
+  /*  float: left;*/
+  /*  display: block;*/
+  /*}*/
+  /*.subsection-body, .subsection-header {*/
+  /*    width: 390px;*/
+  /*}*/
+}
+
+
+/*@media screen and (max-width: 600px) {*/
+/*  .group-holder {*/
+/*    grid-template-columns: 1fr*/
+/*  }*/
+/*}*/
+
+@media only screen and (max-width: 1000px) {
+  .group-holder {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+body {
+  margin: 0px;
+  height: 100%;
+  background: hsl(220deg 100% 80%);
+}
+
+
+
+a {
+  text-decoration: underline;
+  color: black;
+  font-weight: 500;
+}
+
+
+
+
+/* color assignments*/
+
+
+.preop {
+  --group-hue: 46;
+  --group-light: 90%
+}
+.intra {
+  --group-hue: 137;
+  --group-light: 70%
+}
+.post {
+  --group-hue: 213;
+  --group-light: 70%
+}
+
+.group {
+  background-color: hsl(var(--group-hue), var(--group-light), 95%);
+  background-image: var(--white-gradient-2);
+  /* box-shadow: -1.4px 3.3px 13.3px hsl(0deg 0% 0% / 0.12); */
+  border-radius: 8px;
+  box-shadow:      1px 2px 2px hsl(220deg 60% 50% / 0.333),      2px 4px 4px hsl(220deg 60% 50% / 0.333),      3px 6px 6px hsl(220deg 60% 50% / 0.333);
+}
+
+.group.preop {}
+.subsection-body {
+  background-color: hsl(var(--group-hue), var(--group-light), 90%);
+  background-image: var(--white-gradient-1);
+}
+.subsection-header {
+  background-color: hsl(var(--group-hue), var(--group-light), 80%);
+  background-image: var(--white-gradient-2);
+}
+.groupheader {
+  background-color: hsl(var(--group-hue), var(--group-light), 70%);
+  /* background-image: url(https://grainy-gradients.vercel.app/noise.svg); */
+  /* filter: contrast(164%) brightness(93%); */
+  /* background-image: var(--white-gradient-1),url("data:image/svg+xml,%3Csvg viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); */
+  /* filter: contrast(170%) brightness(80%); */
+}
+
+
+/* layout */
+
+
+.groupheader {
+  width: 100%;
+  padding: 20px;
+  top: 0;
+  font-weight: 700;
+  color: #000000;
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+.groupbody {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.groupbody.web-only {
+  margin-bottom: 25px;
+}
+.groupbody.print-only {
+  height: 880px;
+}
+
+
+.title-banner {
+  width: 100%;
+  background-color: #C00000;
+  background-image: var(--black-gradient);
+  display: block;
+  float: left;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+
+.title-text {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1rem;
+}
+
+.title-buttons a {
+  width: 40px;
+  height: 20px;
+  float: right;
+  color: #ffffff;
+}
+
+.title-buttons a:hover {
+  color: #ef7a7a;
+}
+
+.subsection-header {
+  font-size: 12px;
+  line-height: 1.2em;
+  font-weight: 550;
+}
+
+.vicon {
+  height: 40px;
+}
+
+.subsection-body p {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1rem;
+  /*text-align: justify;*/
+  width: 100%;
+  color: #000000;
+  padding: 0 20px;
+  /*hyphens: auto;*/
+  /*overflow-wrap: break-word;*/
+}
+
+/*<'font-style'> – See the font-style CSS property.*/
+/*<'font-variant'> – See the font-variant CSS property.*/
+/*<'font-weight'> – See the font-weight CSS property.*/
+/*<'font-stretch'> – See the font-stretch CSS property.*/
+/*<'font-size'> – See the font-size CSS property.*/
+/*<'line-height'> – See the line-height CSS property.*/
+/*<'font-family'> – See the font-family CSS property.*/
+
+.subsection-body ul {
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1rem;
+  /*text-align: justify;*/
+  padding-right: 20px;
+  /*hyphens: auto;*/
+  /*overflow-wrap: break-word;*/
+}
+
+.subsection {
+  width: 100%;
+  padding: 20px 0 0 20px;
+  float: left;
+  margin-right: 15px;
+}
+
+
+.dot {
+  width: 61px;
+  /* height: 74px; */
+  /* border-radius: 37px; */
+  text-align: center;
+  padding: 16px 0px;
+  /* float: left; */
+  position: absolute;
+  left: 38px;
+  filter:  invert(100%) sepia(94%) saturate(1648%) hue-rotate(314deg) brightness(108%) contrast(94%);
+}
+
+
+.subsection-body {
+  float: right;
+  margin-left: 15px;
+}
+
+.subsection-header {
+  height: 34px;
+  float: right;
+  margin-left: 15px;
+  padding: 10px 15px;
+}
+
+
+.foot {
+
+  font-weight: 300;
+  color: #000000;
+  font-size: 13px;
+  text-align: right;
+  letter-spacing: 0;
+  line-height: normal;
+}
