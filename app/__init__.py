@@ -13,9 +13,10 @@ import pandoc
 import pypandoc
 import urllib
 from pyhtml2pdf import converter
-from flask import send_file
+from flask import send_file, redirect
 
 app = Flask(__name__)
+app.config['SERVER_NAME'] = 'localhost:5000'
 
 # TODO auth
 # https://spdb.stanford.edu/spconfigs/new
@@ -64,13 +65,24 @@ def generate_html(markdown_path, format, style):
     #     file.write(content)
     return content
 
+# quality website
+@app.route('/', methods=['GET'], subdomain="quality")
+def redirect_quality():
+    return redirect("https://stanfordaimlab.notion.site/Quality-Improvement-Problems-and-Ideas-635775f0689c4205b5ea60406e96635a", code=302)
+
+# homepage
 @app.route('/', methods=['GET'])
+def redirect_to_pathways():
+    return redirect("https://pathways.stanes.link", code=302)
+
+
+@app.route('/', methods=['GET'], subdomain="pathways")
 def index():
     style = request.args.get('style', default = 'larissa', type = str)
     return render_template('index_template.html', style=style)
 
 
-@app.route('/breast/pdf', methods=['GET'])
+@app.route('/breast/pdf',methods=['GET'], subdomain="pathways")
 def generate_pdf_breast():
     print_options = {'paperWidth': 11,
                      'paperHeight': 8.5,
@@ -80,7 +92,7 @@ def generate_pdf_breast():
                      'marginRight': 0,
                      'scale': 0.75}
     # always uses default style "larissa"
-    request_path = 'http://localhost:5000/breast/print'
+    request_path = 'http://pathways.localhost:5000/breast/print'
     # path = os.path.abspath('static/build/breast.html')
     # converter.convert(f'file:///{path}', 'static/build/breast.pdf', print_options=print_options)
     converter.convert(request_path, 'app/static/build/breast.pdf', print_options=print_options)
@@ -89,12 +101,12 @@ def generate_pdf_breast():
     except:
         return "PDF not found"
 
-@app.route('/breast/print', methods=['GET'])
+@app.route('/breast/print',methods=['GET'], subdomain="pathways")
 def generate_print_html():
     style = request.args.get('style', default = 'larissa', type = str)
     return generate_html(markdown_path='https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/download',format="print", style=style)
 
-@app.route('/breast', methods=['GET'])
+@app.route('/breast',methods=['GET'], subdomain="pathways")
 def generate_web_html():
     style = request.args.get('style', default = 'larissa', type = str)
     return generate_html(markdown_path='https://hackmd.io/@stanford-anesthesia/HJjHfGv6a/download',format="web", style=style)
