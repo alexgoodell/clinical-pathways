@@ -16,7 +16,8 @@ from pyhtml2pdf import converter
 from flask import send_file, redirect
 
 app = Flask(__name__)
-app.config['SERVER_NAME'] = 'localhost:5000'
+# app.config['SERVER_NAME'] = 'localhost:5000'
+app.config['SERVER_NAME'] = 'stanes.link'
 
 # TODO auth
 # https://spdb.stanford.edu/spconfigs/new
