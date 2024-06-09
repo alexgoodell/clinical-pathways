@@ -108,7 +108,9 @@ def generate_web_html():
 
 
 ## fallback redirect
+# TODO: why does root redirect not work? ie stanes.link -> 404 unclear why
 @app.route('/redirect')
+@app.route('/redirect/')
 @app.route('/redirect/<first>')
 @app.route('/redirect/<first>/<path:rest>')
 def fallback(first=None, rest=None):
