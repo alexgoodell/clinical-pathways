@@ -115,8 +115,9 @@ def generate_web_html():
 @app.route('/redirect/<first>/<path:rest>')
 def fallback(first=None, rest=None):
     redirects = {'poise-ideas': 'https://dotstorming.com/b/6665470a98d43944ecc6a8f3',
-                 'breaks': 'https://goto.stanford.edu/breaks'
-                 }
+                 'breaks': 'https://goto.stanford.edu/breaks',
+                 'okrs': 'https://office365stanford.sharepoint.com/:x:/s/SARATestSite'
+                         '/EcdH3dZLmGNMhkimd_Nr4PgBzG_WDX2cFmovigMTNFmbbw?e=1AhURB'}
 
     # root redirect to anesthesiaintranet
     if first is None:
