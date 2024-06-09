@@ -108,9 +108,9 @@ def generate_web_html():
 
 
 ## fallback redirect
-@app.route('/')
-@app.route('/<first>')
-@app.route('/<first>/<path:rest>')
+@app.route('/redirect')
+@app.route('/redirect/<first>')
+@app.route('/redirect/<first>/<path:rest>')
 def fallback(first=None, rest=None):
     redirects = {'meld': '/meld-na',
                  'chatbot': '/chat',
@@ -124,7 +124,7 @@ def fallback(first=None, rest=None):
             return app.redirect(location=redirects[first], code=302)
     except KeyError:
         pass
-    return "Error 404: Page not found"
+    return f"Error 404: Page not found {first} {rest}"
 
 
 if __name__ == '__main__':
