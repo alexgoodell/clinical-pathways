@@ -118,6 +118,9 @@ def fallback(first=None, rest=None):
                  'breaks': 'https://goto.stanford.edu/breaks'
                  }
 
+    # root redirect to anesthesiaintranet
+    if first is None:
+        return app.redirect(location="https://anesthesiaintranet.stanford.edu/", code=302)
     try:
         if redirects[first]:
             return app.redirect(location=redirects[first], code=302)
