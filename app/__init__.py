@@ -112,12 +112,9 @@ def generate_web_html():
 @app.route('/redirect/<first>')
 @app.route('/redirect/<first>/<path:rest>')
 def fallback(first=None, rest=None):
-    redirects = {'meld': '/meld-na',
-                 'chatbot': '/chat',
-                 'bot': '/chat',
-                 'chat': 'https://chat.openai.com/g/g-mtNkUsX41-openmedcalc',
-                 'paper': 'https://www.medrxiv.org/content/10.1101/2023.12.13.23299881v1',
-                 'preprint': 'https://www.medrxiv.org/content/10.1101/2023.12.13.23299881v1'}
+    redirects = {'poise-ideas': 'https://dotstorming.com/b/6665470a98d43944ecc6a8f3',
+                 'breaks': 'https://goto.stanford.edu/breaks'
+                 }
 
     try:
         if redirects[first]:
